@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Mail, Linkedin, MapPin, Github, Facebook, Twitter, Discord } from "lucide-react";
+import { Mail, Linkedin, MapPin, Github, Facebook, Twitter, MessageCircle } from "lucide-react";
 
 export const Contact = () => {
   return (
@@ -54,7 +54,7 @@ export const Contact = () => {
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <Discord className="w-5 h-5" />
+          <MessageCircle className="w-5 h-5" />
           <span>Discord</span>
         </a>
         <a
