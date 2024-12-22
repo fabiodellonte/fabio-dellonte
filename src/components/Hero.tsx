@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun } from "lucide-react";
+import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun, FileDown } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useSettings } from "@/contexts/SettingsContext";
 import { Button } from "./ui/button";
@@ -10,17 +10,29 @@ const translations = {
     role: "Software Operations Manager at Biesse Group",
     description: "Passionate about Application Lifecycle Management and software development, with expertise in DevOps infrastructure and Agile methodologies.",
     getInTouch: "Get in Touch",
+    downloadCV: "Download CV"
   },
   it: {
     role: "Software Operations Manager presso Biesse Group",
     description: "Appassionato di Application Lifecycle Management e sviluppo software, con esperienza in infrastrutture DevOps e metodologie Agili.",
     getInTouch: "Contattami",
+    downloadCV: "Scarica CV"
   }
 };
 
 export const Hero = () => {
   const { language, theme, setTheme } = useSettings();
   const t = translations[language];
+
+  const handleDownloadCV = () => {
+    const pdfUrl = "/cv.pdf";
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = `FabioDellOnte_CV_${language}.pdf`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <motion.div
@@ -30,6 +42,15 @@ export const Hero = () => {
       className="flex flex-col items-center gap-6 relative"
     >
       <div className="fixed top-4 right-4 flex items-center gap-4">
+        <Button
+          variant="outline"
+          size="sm"
+          className="flex items-center gap-2"
+          onClick={handleDownloadCV}
+        >
+          <FileDown className="h-4 w-4" />
+          {t.downloadCV}
+        </Button>
         <LanguageSwitcher />
         <Button
           variant="ghost"
@@ -39,7 +60,7 @@ export const Hero = () => {
           {theme === "light" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
         </Button>
       </div>
-      
+
       <Avatar className="w-64 h-64 border-2 border-primary">
         <AvatarImage src="/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png" alt="Fabio Dell'Onte" />
         <AvatarFallback>FD</AvatarFallback>
