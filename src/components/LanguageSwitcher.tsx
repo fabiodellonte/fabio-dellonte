@@ -1,20 +1,22 @@
 import { Globe } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
+import { useSettings } from "@/contexts/SettingsContext";
 
 export const LanguageSwitcher = () => {
+  const { language, setLanguage } = useSettings();
+
   return (
-    <div className="fixed top-4 right-4 flex items-center gap-2">
+    <div className="flex items-center gap-2">
       <Globe className="w-4 h-4" />
       <Switch
         id="language-switch"
-        aria-label="Toggle language"
+        checked={language === "it"}
         onCheckedChange={(checked) => {
-          // TODO: Implement language switching logic
-          console.log("Language switched:", checked ? "English" : "Italian");
+          setLanguage(checked ? "it" : "en");
         }}
       />
       <span className="text-sm text-muted-foreground">
-        IT/EN
+        {language === "en" ? "IT/EN" : "EN/IT"}
       </span>
     </div>
   );

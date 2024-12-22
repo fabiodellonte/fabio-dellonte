@@ -3,34 +3,29 @@ import { About } from "@/components/About";
 import { Experience } from "@/components/Experience";
 import { Skills } from "@/components/Skills";
 import { Education } from "@/components/Education";
-import { Contact } from "@/components/Contact";
 import { Section } from "@/components/Section";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <Section>
+      <Section className="py-12">
         <Hero />
       </Section>
       
-      <Section>
+      <Section className="py-8">
         <About />
       </Section>
       
-      <Section>
+      <Section className="py-8">
         <Experience />
       </Section>
       
-      <Section>
+      <Section className="py-8">
         <Skills />
       </Section>
       
-      <Section>
+      <Section className="py-8">
         <Education />
-      </Section>
-      
-      <Section>
-        <Contact />
       </Section>
     </div>
   );
