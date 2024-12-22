@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Hero = () => {
   return (
@@ -8,9 +9,11 @@ export const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col items-center gap-6"
+      className="flex flex-col items-center gap-6 relative"
     >
-      <Avatar className="w-32 h-32 border-2 border-primary">
+      <LanguageSwitcher />
+      
+      <Avatar className="w-48 h-48 border-2 border-primary">
         <AvatarImage src="/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png" alt="Fabio Dell'Onte" />
         <AvatarFallback>FD</AvatarFallback>
       </Avatar>
