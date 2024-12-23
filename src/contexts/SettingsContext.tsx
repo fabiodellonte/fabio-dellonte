@@ -10,13 +10,21 @@ interface SettingsContextType {
   setTheme: (theme: Theme) => void;
 }
 
-const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
+const SettingsContext = createContext<SettingsContextType | undefined>(
+  undefined
+);
 
 export function SettingsProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguage] = useState<Language>("en");
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      const storedTheme = localStorage.getItem("theme") as Theme;
+      if (storedTheme) {
+        return storedTheme;
+      }
+      return window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
     }
     return "light";
   });
@@ -25,10 +33,18 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
     const root = window.document.documentElement;
     root.classList.remove("light", "dark");
     root.classList.add(theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.add(theme);
+  }, []);
+
   return (
-    <SettingsContext.Provider value={{ language, setLanguage, theme, setTheme }}>
+    <SettingsContext.Provider
+      value={{ language, setLanguage, theme, setTheme }}
+    >
       {children}
     </SettingsContext.Provider>
   );
