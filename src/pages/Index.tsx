@@ -17,16 +17,23 @@ const Index = () => {
       </Section>
       
       <Section className="py-8">
-        <Experience />
+        <Skills />
       </Section>
       
       <Section className="py-8">
-        <Skills />
+        <Experience />
       </Section>
       
       <Section className="py-8">
         <Education />
       </Section>
+
+      <div id="cv-content" className="hidden">
+        <About />
+        <Skills />
+        <Experience />
+        <Education />
+      </div>
     </div>
   );
 };

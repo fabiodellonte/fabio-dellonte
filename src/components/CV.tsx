@@ -24,8 +24,8 @@ export const CV = () => {
       </header>
 
       <About />
-      <Experience />
       <Skills />
+      <Experience />
       <Education />
     </div>
   );

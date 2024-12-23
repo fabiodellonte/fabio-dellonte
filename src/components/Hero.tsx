@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun, FileDown } from "lucide-react";
+import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun, FileDown, Instagram } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useSettings } from "@/contexts/SettingsContext";
 import { Button } from "./ui/button";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { CV } from "./CV";
 
 const translations = {
   en: {
@@ -30,23 +29,15 @@ export const Hero = () => {
   const t = translations[language];
 
   const handleDownloadCV = async () => {
-    // Create a temporary div to render the CV
-    const tempDiv = document.createElement('div');
-    tempDiv.style.position = 'absolute';
-    tempDiv.style.left = '-9999px';
-    document.body.appendChild(tempDiv);
-
-    // Render the CV component into the temporary div
-    const root = document.createElement('div');
-    root.style.width = '1000px'; // Fixed width for PDF
-    root.innerHTML = `<div id="cv-content"><${CV}/></div>`;
-    tempDiv.appendChild(root);
+    const cvElement = document.getElementById('cv-content');
+    if (!cvElement) return;
 
     try {
-      const canvas = await html2canvas(document.getElementById('cv-content'), {
+      const canvas = await html2canvas(cvElement, {
         scale: 2,
         useCORS: true,
-        logging: false
+        logging: false,
+        backgroundColor: theme === 'dark' ? '#000000' : '#ffffff'
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -60,9 +51,6 @@ export const Hero = () => {
       pdf.save(`FabioDellOnte_CV_${language}.pdf`);
     } catch (error) {
       console.error('Error generating PDF:', error);
-    } finally {
-      // Clean up
-      document.body.removeChild(tempDiv);
     }
   };
 
@@ -128,7 +116,7 @@ export const Hero = () => {
 
       <div className="flex flex-wrap items-center justify-center gap-8">
         <a
-          href="https://www.linkedin.com/in/your-profile"
+          href="https://it.linkedin.com/in/fabio-dell-onte-09b0419"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
@@ -137,7 +125,7 @@ export const Hero = () => {
           <span>LinkedIn</span>
         </a>
         <a
-          href="https://github.com/your-profile"
+          href="https://github.com/fabiodellonte"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
@@ -146,7 +134,7 @@ export const Hero = () => {
           <span>GitHub</span>
         </a>
         <a
-          href="https://facebook.com/your-profile"
+          href="https://m.facebook.com/fdellonte/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
@@ -155,7 +143,7 @@ export const Hero = () => {
           <span>Facebook</span>
         </a>
         <a
-          href="https://twitter.com/your-profile"
+          href="https://x.com/FabioDellOnte"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
@@ -164,13 +152,13 @@ export const Hero = () => {
           <span>X (Twitter)</span>
         </a>
         <a
-          href="https://discord.com/users/your-id"
+          href="https://www.instagram.com/fabiodellonte/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <MessageCircle className="w-5 h-5" />
-          <span>Discord</span>
+          <Instagram className="w-5 h-5" />
+          <span>Instagram</span>
         </a>
       </div>
     </motion.div>
