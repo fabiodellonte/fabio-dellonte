@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun, FileDown, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Github, Facebook, Twitter, MessageCircle, Linkedin, Moon, Sun, FileDown, Instagram, Globe } from "lucide-react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { useSettings } from "@/contexts/SettingsContext";
 import { Button } from "./ui/button";
@@ -100,14 +100,18 @@ export const Hero = () => {
           <Phone className="w-4 h-4" />
           <span>+39 329 748 8632</span>
         </a>
-        <a href="mailto:your.email@example.com" className="flex items-center gap-2 hover:text-primary transition-colors">
+        <a href="mailto:fabiodellonte@gmail.com" className="flex items-center gap-2 hover:text-primary transition-colors">
           <Mail className="w-4 h-4" />
-          <span>Email</span>
+          <span>fabiodellonte@gmail.com</span>
         </a>
         <div className="flex items-center gap-2">
           <MapPin className="w-4 h-4" />
           <span>Pesaro, Marche, Italia</span>
         </div>
+        <a href="https://fabiodellonte.github.io/fabio-dellonte/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors">
+          <Globe className="w-4 h-4" />
+          <span>Website</span>
+        </a>
       </div>
 
       <p className="text-lg max-w-2xl mx-auto text-muted-foreground text-center mb-8">
