@@ -1,30 +1,60 @@
 import { motion } from "framer-motion";
+import { useSettings } from "@/contexts/SettingsContext";
 
-const skillCategories = [
-  {
-    name: "Languages & Frameworks",
-    skills: ["C#", "C++", "TypeScript", "Qt", "QML", ".NET Framework"]
+const translations = {
+  en: {
+    title: "Skills",
+    categories: [
+      {
+        name: "Languages & Frameworks",
+        skills: ["C#", "C++", "TypeScript", "Qt", "QML", ".NET Framework"]
+      },
+      {
+        name: "DevOps & Tools",
+        skills: ["Azure DevOps", "Git", "Jenkins", "Docker", "CI/CD"]
+      },
+      {
+        name: "Cloud & Infrastructure",
+        skills: ["Azure", "Cloud Computing", "Infrastructure Management"]
+      },
+      {
+        name: "Methodologies",
+        skills: ["Agile", "Test Driven Development", "Object-Oriented Design"]
+      }
+    ]
   },
-  {
-    name: "DevOps & Tools",
-    skills: ["Azure DevOps", "Git", "Jenkins", "Docker", "CI/CD"]
-  },
-  {
-    name: "Cloud & Infrastructure",
-    skills: ["Azure", "Cloud Computing", "Infrastructure Management"]
-  },
-  {
-    name: "Methodologies",
-    skills: ["Agile", "Test Driven Development", "Object-Oriented Design"]
+  it: {
+    title: "Competenze",
+    categories: [
+      {
+        name: "Linguaggi & Framework",
+        skills: ["C#", "C++", "TypeScript", "Qt", "QML", ".NET Framework"]
+      },
+      {
+        name: "DevOps & Strumenti",
+        skills: ["Azure DevOps", "Git", "Jenkins", "Docker", "CI/CD"]
+      },
+      {
+        name: "Cloud & Infrastruttura",
+        skills: ["Azure", "Cloud Computing", "Gestione Infrastrutture"]
+      },
+      {
+        name: "Metodologie",
+        skills: ["Agile", "Test Driven Development", "Progettazione Object-Oriented"]
+      }
+    ]
   }
-];
+};
 
 export const Skills = () => {
+  const { language } = useSettings();
+  const t = translations[language];
+
   return (
     <div className="space-y-8">
-      <h2 className="text-3xl font-bold mb-8">Skills</h2>
+      <h2 className="text-3xl font-bold mb-8">{t.title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {skillCategories.map((category, index) => (
+        {t.categories.map((category, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 20 }}

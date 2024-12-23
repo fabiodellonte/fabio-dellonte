@@ -1,47 +1,94 @@
 import { motion } from "framer-motion";
+import { useSettings } from "@/contexts/SettingsContext";
 
-const experiences = [
-  {
-    title: "Software Operations Manager",
-    company: "Biesse",
-    period: "Jan 2023 - Present",
-    responsibilities: [
-      "SDLC, Software Development Lifecycle Management (Agile DevOps, CI/CD)",
-      "SCM, software configuration management",
-      "Software protection development",
-      "Cloud Infrastructure development",
-      "Technical relationships with suppliers and customers"
+const translations = {
+  en: {
+    title: "Experience",
+    experiences: [
+      {
+        title: "Software Operations Manager",
+        company: "Biesse",
+        period: "Jan 2023 - Present",
+        responsibilities: [
+          "SDLC, Software Development Lifecycle Management (Agile DevOps, CI/CD)",
+          "SCM, software configuration management",
+          "Software protection development",
+          "Cloud Infrastructure development",
+          "Technical relationships with suppliers and customers"
+        ]
+      },
+      {
+        title: "Process and Test Manager",
+        company: "Biesse",
+        period: "Dec 2016 - Dec 2022",
+        responsibilities: [
+          "Development of Application Lifecycle Management processes",
+          "Development of cloud integration for user data analysis",
+          "Development of software infrastructure tools",
+          "Management of technical relationships"
+        ]
+      },
+      {
+        title: "Software Team Leader",
+        company: "Biesse",
+        period: "Mar 2012 - Nov 2016",
+        responsibilities: [
+          "Cad/Cam software technical management",
+          "Post processor & vertical software development",
+          "Software validation and QA"
+        ]
+      }
     ]
   },
-  {
-    title: "Process and Test Manager",
-    company: "Biesse",
-    period: "Dec 2016 - Dec 2022",
-    responsibilities: [
-      "Development of Application Lifecycle Management processes",
-      "Development of cloud integration for user data analysis",
-      "Development of software infrastructure tools",
-      "Management of technical relationships"
-    ]
-  },
-  {
-    title: "Software Team Leader",
-    company: "Biesse",
-    period: "Mar 2012 - Nov 2016",
-    responsibilities: [
-      "Cad/Cam software technical management",
-      "Post processor & vertical software development",
-      "Software validation and QA"
+  it: {
+    title: "Esperienza",
+    experiences: [
+      {
+        title: "Software Operations Manager",
+        company: "Biesse",
+        period: "Gen 2023 - Presente",
+        responsibilities: [
+          "SDLC, Gestione del ciclo di vita dello sviluppo software (Agile DevOps, CI/CD)",
+          "SCM, gestione della configurazione software",
+          "Sviluppo protezione software",
+          "Sviluppo infrastruttura Cloud",
+          "Relazioni tecniche con fornitori e clienti"
+        ]
+      },
+      {
+        title: "Process and Test Manager",
+        company: "Biesse",
+        period: "Dic 2016 - Dic 2022",
+        responsibilities: [
+          "Sviluppo dei processi di Application Lifecycle Management",
+          "Sviluppo dell'integrazione cloud per l'analisi dei dati utente",
+          "Sviluppo di strumenti per l'infrastruttura software",
+          "Gestione delle relazioni tecniche"
+        ]
+      },
+      {
+        title: "Software Team Leader",
+        company: "Biesse",
+        period: "Mar 2012 - Nov 2016",
+        responsibilities: [
+          "Gestione tecnica software Cad/Cam",
+          "Sviluppo post processor e software verticali",
+          "Validazione software e QA"
+        ]
+      }
     ]
   }
-];
+};
 
 export const Experience = () => {
+  const { language } = useSettings();
+  const t = translations[language];
+
   return (
     <div className="space-y-12">
-      <h2 className="text-3xl font-bold mb-8">Experience</h2>
+      <h2 className="text-3xl font-bold mb-8">{t.title}</h2>
       <div className="space-y-12">
-        {experiences.map((exp, index) => (
+        {t.experiences.map((exp, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, x: -20 }}
