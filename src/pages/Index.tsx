@@ -29,10 +29,13 @@ const Index = () => {
       </Section>
 
       <div id="cv-content" className="hidden">
-        <About />
-        <Skills />
-        <Experience />
-        <Education />
+        <div className="p-8 bg-background text-foreground">
+          <h1 className="text-4xl font-bold mb-4 text-center">Fabio Dell'Onte</h1>
+          <About />
+          <Skills />
+          <Experience />
+          <Education />
+        </div>
       </div>
     </div>
   );

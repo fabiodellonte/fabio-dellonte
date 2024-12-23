@@ -32,12 +32,25 @@ export const Hero = () => {
     const cvElement = document.getElementById('cv-content');
     if (!cvElement) return;
 
+    const originalDisplay = cvElement.style.display;
+    cvElement.style.display = 'block';
+
     try {
       const canvas = await html2canvas(cvElement, {
         scale: 2,
         useCORS: true,
         logging: false,
-        backgroundColor: theme === 'dark' ? '#000000' : '#ffffff'
+        backgroundColor: theme === 'dark' ? '#000000' : '#ffffff',
+        windowWidth: 1920,
+        onclone: (clonedDoc) => {
+          const clonedElement = clonedDoc.getElementById('cv-content');
+          if (clonedElement) {
+            clonedElement.style.display = 'block';
+            clonedElement.style.transform = 'none';
+            clonedElement.style.width = '100%';
+            clonedElement.style.height = 'auto';
+          }
+        }
       });
 
       const imgData = canvas.toDataURL('image/png');
@@ -51,6 +64,8 @@ export const Hero = () => {
       pdf.save(`FabioDellOnte_CV_${language}.pdf`);
     } catch (error) {
       console.error('Error generating PDF:', error);
+    } finally {
+      cvElement.style.display = originalDisplay;
     }
   };
 
@@ -82,7 +97,7 @@ export const Hero = () => {
       </div>
 
       <Avatar className="w-64 h-64 border-2 border-primary">
-        <AvatarImage src="/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png" alt="Fabio Dell'Onte" />
+        <AvatarImage src="/fabio-dellonte/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png" alt="Fabio Dell'Onte" />
         <AvatarFallback>FD</AvatarFallback>
       </Avatar>
 
