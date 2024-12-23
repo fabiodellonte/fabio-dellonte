@@ -64,7 +64,7 @@ const skillIcons = {
   "Visual Studio 2005": <CodeIcon className="w-4 h-4 text-purple-200" />,
   "Visual Studio Code": <CodeIcon className="w-4 h-4 text-blue-500" />,
   Cursor: <CodeIcon className="w-4 h-4 text-green-500" />,
-  Windsurfer: <CodeIcon className="w-4 h-4 text-cyan-500" />,
+  Windsurf: <CodeIcon className="w-4 h-4 text-cyan-500" />,
   Azure: <Cloud className="w-4 h-4 text-blue-500" />,
   "Windows Azure": <Cloud className="w-4 h-4 text-blue-400" />,
   "Cloud Computing": <Cloud className="w-4 h-4 text-blue-300" />,
@@ -155,7 +155,7 @@ const translations = {
           "Visual Studio 2005",
           "Visual Studio Code",
           "Cursor",
-          "Windsurfer",
+          "Windsurf",
         ],
       },
       {
@@ -277,7 +277,7 @@ const translations = {
           "Visual Studio 2005",
           "Visual Studio Code",
           "Cursor",
-          "Windsurfer",
+          "Windsurf",
         ],
       },
       {

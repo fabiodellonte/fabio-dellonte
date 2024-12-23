@@ -83,9 +83,9 @@ export const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col items-center gap-6 relative"
+      className="flex flex-col items-center gap-6 relative pt-20 md:pt-16"
     >
-      <Avatar className="w-64 h-64 border-[4px] border-primary avatar-glow">
+      <Avatar className="w-[55%] md:w-64 h-[55%] md:h-64 border-[4px] border-primary avatar-glow">
         <AvatarImage
           src="/fabio-dellonte/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png"
           alt="Fabio Dell'Onte"

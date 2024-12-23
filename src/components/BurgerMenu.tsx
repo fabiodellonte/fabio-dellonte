@@ -43,13 +43,13 @@ export const BurgerMenu = () => {
         <Button
           variant="ghost"
           size="icon"
-          className="fixed top-4 left-4 z-40"
+          className="fixed top-3 left-4 z-50"
           aria-label={t.menu}
         >
           <Menu className="h-5 w-5" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left">
+      <SheetContent side="left" className="w-[80%] sm:w-[385px]">
         <SheetTitle>{t.menu}</SheetTitle>
         <div className="flex flex-col gap-4 mt-8">
           <Button
