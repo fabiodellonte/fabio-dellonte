@@ -1,6 +1,15 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Phone, Mail, Home, Github, Linkedin, Twitter } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  Home,
+  Github,
+  Linkedin,
+  Twitter,
+  Facebook,
+  Instagram,
+} from "lucide-react";
 import { useSettings } from "@/contexts/SettingsContext";
 import { TypeAnimation } from "react-type-animation";
 
@@ -21,6 +30,7 @@ const translations = {
       "Software Architect",
       3000,
     ],
+    location: "Pesaro, Marche, Italy",
   },
   it: {
     role: "Ingegnere del Software",
@@ -38,6 +48,7 @@ const translations = {
       "Software Architect",
       3000,
     ],
+    location: "Pesaro, Marche, Italia",
   },
 };
 
@@ -120,25 +131,25 @@ export const Hero = () => {
           <span>+39 329 748 8632</span>
         </a>
         <a
-          href="mailto:fabiodellonte@biesse.com"
+          href="mailto:fabio.dellonte@gmail.com"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <div className="p-2 rounded-full bg-secondary text-red-500 group-hover:bg-red-100 dark:group-hover:bg-red-900/30 transition-colors">
             <Mail className="w-5 h-5" />
           </div>
-          <span>fabiodellonte@biesse.com</span>
+          <span>fabio.dellonte@gmail.com</span>
         </a>
         <span className="flex items-center gap-2 text-muted-foreground group">
           <div className="p-2 rounded-full bg-secondary text-green-500 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-colors">
             <Home className="w-5 h-5" />
           </div>
-          <span>Pesaro, Marche, Italia</span>
+          <span>{t.location}</span>
         </span>
       </div>
 
       <div className="flex flex-wrap justify-center gap-6 mt-2">
         <a
-          href="https://www.linkedin.com/in/fabiodellonte/"
+          href="https://www.linkedin.com/in/fabio-dell-onte-09b0419/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
@@ -149,7 +160,7 @@ export const Hero = () => {
           <span>LinkedIn</span>
         </a>
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/fabiodellonte/fabio-dellonte"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
@@ -160,7 +171,7 @@ export const Hero = () => {
           <span>GitHub</span>
         </a>
         <a
-          href="https://twitter.com/yourusername"
+          href="https://x.com/FabioDellOnte"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
@@ -169,6 +180,28 @@ export const Hero = () => {
             <Twitter className="w-5 h-5" />
           </div>
           <span>Twitter</span>
+        </a>
+        <a
+          href="https://m.facebook.com/fdellonte/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+        >
+          <div className="p-2 rounded-full bg-secondary text-blue-600 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
+            <Facebook className="w-5 h-5" />
+          </div>
+          <span>Facebook</span>
+        </a>
+        <a
+          href="https://www.instagram.com/fabiodellonte/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+        >
+          <div className="p-2 rounded-full bg-secondary text-pink-500 group-hover:bg-pink-100 dark:group-hover:bg-pink-900/30 transition-colors">
+            <Instagram className="w-5 h-5" />
+          </div>
+          <span>Instagram</span>
         </a>
       </div>
     </motion.div>

@@ -4,14 +4,18 @@ import { useSettings } from "@/contexts/SettingsContext";
 const translations = {
   en: {
     title: "About Me",
-    paragraph1: "I have a strong interest in Application Lifecycle Management and software development. With extensive experience in DevOps infrastructure and Agile methodologies, I'm committed to improving process efficiency through automation, particularly in the manufacturing sector.",
-    paragraph2: "I believe in seeking practical and concrete solutions, compliant with strict requirements and deadlines. Beyond technical skills, I value creating a comfortable environment where colleagues can thrive, emphasizing the importance of listening and providing support."
+    paragraph1:
+      "I am a highly optimistic and life-loving person who believes in balancing professional dedication with personal enjoyment. I thrive on challenges while maintaining a positive outlook on life. When situations demand it, I can be extremely focused and determined, channeling all my energy into achieving goals. I strongly believe in people and their potential, always seeking to bring out the best in those around me. Above all, I am deeply committed to truth, transparency, and integrity in all aspects of life, considering these values fundamental pillars of both personal and professional relationships.",
+    paragraph2:
+      "Passionate about technology and innovation, with over 15 years of experience in software development and team leadership. Throughout my career, I've successfully managed complex projects and led high-performing teams, always focusing on delivering quality solutions while fostering a collaborative and growth-oriented environment.",
   },
   it: {
     title: "Chi Sono",
-    paragraph1: "Ho un forte interesse per l'Application Lifecycle Management e lo sviluppo software. Con una vasta esperienza in infrastrutture DevOps e metodologie Agili, sono impegnato a migliorare l'efficienza dei processi attraverso l'automazione, in particolare nel settore manifatturiero.",
-    paragraph2: "Credo nella ricerca di soluzioni pratiche e concrete, conformi a requisiti e scadenze rigorose. Oltre alle competenze tecniche, do valore alla creazione di un ambiente confortevole dove i colleghi possano prosperare, enfatizzando l'importanza dell'ascolto e del supporto."
-  }
+    paragraph1:
+      "Sono una persona estremamente ottimista e amante della vita, che crede nell'equilibrio tra dedizione professionale e gioia di vivere. Amo le sfide mantenendo sempre un approccio positivo alla vita. Quando la situazione lo richiede, so essere estremamente determinato e concentrato, incanalando tutte le mie energie nel raggiungimento degli obiettivi. Credo fortemente nelle persone e nel loro potenziale, cercando sempre di far emergere il meglio in chi mi circonda. Soprattutto, sono profondamente legato alla verità, alla trasparenza e all'integrità in ogni aspetto della vita, considerando questi valori pilastri fondamentali sia delle relazioni personali che professionali.",
+    paragraph2:
+      "Appassionato di tecnologia e innovazione, con oltre 15 anni di esperienza nello sviluppo software e nella leadership di team. Durante la mia carriera, ho gestito con successo progetti complessi e guidato team ad alte prestazioni, concentrandomi sempre sulla consegna di soluzioni di qualità e sulla creazione di un ambiente collaborativo orientato alla crescita.",
+  },
 };
 
 export const About = () => {
