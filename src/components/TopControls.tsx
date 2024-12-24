@@ -40,6 +40,7 @@ export const TopControls = () => {
         isTitle?: boolean;
         indent?: number;
         color?: string;
+        x?: number;
       } = {}
     ) => {
       const {
@@ -48,6 +49,7 @@ export const TopControls = () => {
         isTitle = false,
         indent = 0,
         color,
+        x = margin + indent,
       } = options;
 
       if (!text.trim()) return;
@@ -56,7 +58,6 @@ export const TopControls = () => {
       pdf.setFont("helvetica", isBold ? "bold" : "normal");
       if (color) pdf.setTextColor(color);
 
-      const x = margin + indent;
       const lines = pdf.splitTextToSize(text, contentWidth - indent);
 
       lines.forEach((line) => {
@@ -96,99 +97,83 @@ export const TopControls = () => {
     let startY = y;
 
     // Colonna sinistra: Contatti
-    const contacts = content.querySelectorAll(
-      "a[href^='tel'], a[href^='mailto'], span.flex.items-center"
-    );
-    if (contacts.length > 0) {
-      addStyledText("Contatti", { fontSize: 10, isBold: true });
-      contacts.forEach((contact) => {
-        addStyledText(contact.textContent?.trim() || "", {
-          fontSize: 7,
-          indent: 2,
-        });
-      });
-    }
+    addStyledText("Contatti", { fontSize: 10, isBold: true });
+    addStyledText("Tel: +39 329 748 8632", { fontSize: 7, indent: 2 });
+    addStyledText("Email: fabiodellonte@gmail.com", { fontSize: 7, indent: 2 });
+    addStyledText("Pesaro, Marche, Italia", { fontSize: 7, indent: 2 });
 
     // Salva la posizione Y per la colonna sinistra
     const contactsEndY = y;
     y = startY;
 
     // Colonna destra: Social
-    const socials = content.querySelectorAll(
-      "a[href*='linkedin'], a[href*='github'], a[href*='twitter']"
-    );
-    if (socials.length > 0) {
-      pdf.setX(margin + columnWidth);
-      addStyledText("Social", { fontSize: 10, isBold: true });
-      socials.forEach((social) => {
-        pdf.setX(margin + columnWidth);
-        addStyledText(social.textContent?.trim() || "", {
-          fontSize: 7,
-          indent: 2,
-        });
-      });
-    }
+    const socialX = margin + columnWidth;
+    addStyledText("Social", { fontSize: 10, isBold: true, x: socialX });
 
-    // Usa la Y più grande tra le due colonne
+    const socialLinks = [
+      {
+        text: "LinkedIn: fabio-dell-onte-09b0419",
+        url: "https://www.linkedin.com/in/fabio-dell-onte-09b0419/",
+      },
+      {
+        text: "GitHub: fabiodellonte",
+        url: "https://github.com/fabiodellonte",
+      },
+      { text: "X: @FabioDellOnte", url: "https://x.com/FabioDellOnte" },
+    ];
+
+    socialLinks.forEach((social) => {
+      addStyledText(social.text, { fontSize: 7, indent: 2, x: socialX });
+    });
+
     y = Math.max(y, contactsEndY) + 4;
 
-    // Competenze in colonne
-    const skills = content.querySelectorAll(".grid.grid-cols-1 > div");
-    if (skills.length > 0) {
-      addStyledText("Competenze", { fontSize: 10, isBold: true });
+    // Competenze
+    addStyledText("Competenze", { fontSize: 12, isBold: true, isTitle: true });
+    y += 2;
 
-      // Organizziamo le competenze in 3 colonne
-      const skillColumnWidth = (contentWidth - 2 * margin) / 3;
-      let currentColumn = 0;
-      startY = y;
-
-      skills.forEach((skillSection) => {
-        const title = skillSection.querySelector("h3");
-        const skillItems = skillSection.querySelectorAll("span.px-3");
+    const skillsSection = content.querySelector(".space-y-8");
+    if (skillsSection) {
+      const categories = skillsSection.querySelectorAll(".grid > div");
+      categories.forEach((category) => {
+        const title = category.querySelector("h3");
+        const skills = category.querySelectorAll("span");
 
         if (title) {
-          const x = margin + skillColumnWidth * currentColumn;
-          y = startY;
-
-          pdf.setFont("helvetica", "bold");
-          pdf.setFontSize(7);
-          pdf.text(title.textContent?.trim() || "", x, y);
-          y += 3;
-
-          pdf.setFont("helvetica", "normal");
-          pdf.setFontSize(6);
-          const items = Array.from(skillItems)
-            .map((item) => item.textContent?.trim())
-            .filter(Boolean);
-          const itemsText = items.join(", ");
-          const lines = pdf.splitTextToSize(itemsText, skillColumnWidth - 3);
-
-          lines.forEach((line) => {
-            pdf.text(line, x, y);
-            y += 2;
+          addStyledText(title.textContent?.trim() || "", {
+            fontSize: 9,
+            isBold: true,
           });
 
-          currentColumn++;
-          if (currentColumn === 3) {
-            currentColumn = 0;
-            startY = y + 3;
-          }
+          const skillTexts = Array.from(skills)
+            .map((skill) => skill.textContent?.trim())
+            .filter(Boolean)
+            .join(", ");
+
+          addStyledText(skillTexts, {
+            fontSize: 8,
+            indent: 2,
+          });
+          y += 2;
         }
       });
-
-      y = startY + 4;
     }
 
-    // Esperienza e Formazione in due colonne
-    startY = y;
+    y += 4;
 
-    // Colonna sinistra: Esperienza
-    const experience = content.querySelector("#experience");
+    // Esperienza Lavorativa
+    addStyledText("Esperienza Lavorativa", {
+      fontSize: 12,
+      isBold: true,
+      isTitle: true,
+    });
+    y += 2;
+
+    const experience = content.querySelector(".experience");
     if (experience) {
-      addStyledText("Esperienza", { fontSize: 10, isBold: true });
-      const items = experience.querySelectorAll("div.space-y-4 > div");
+      const items = experience.querySelectorAll(".mb-4");
       items.forEach((item) => {
-        const title = item.querySelector("h4");
+        const title = item.querySelector("h3");
         const period = item.querySelector("span");
         const description = item.querySelector("p");
 
@@ -197,58 +182,54 @@ export const TopControls = () => {
             title.textContent?.trim() +
               (period ? " - " + period.textContent?.trim() : ""),
             {
-              fontSize: 7,
+              fontSize: 9,
               isBold: true,
             }
           );
         }
         if (description) {
           addStyledText(description.textContent?.trim() || "", {
-            fontSize: 6,
+            fontSize: 8,
             indent: 2,
           });
         }
+        y += 2;
       });
     }
 
-    // Salva la posizione Y per la colonna sinistra
-    const experienceEndY = y;
-    y = startY;
+    y += 4;
 
-    // Colonna destra: Formazione
-    const education = content.querySelector("#education");
+    // Formazione
+    addStyledText("Formazione", { fontSize: 12, isBold: true, isTitle: true });
+    y += 2;
+
+    const education = content.querySelector(".education");
     if (education) {
-      pdf.setX(margin + columnWidth);
-      addStyledText("Formazione", { fontSize: 10, isBold: true });
-      const items = education.querySelectorAll("div.space-y-4 > div");
+      const items = education.querySelectorAll(".mb-4");
       items.forEach((item) => {
-        const title = item.querySelector("h4");
+        const title = item.querySelector("h3");
         const period = item.querySelector("span");
         const description = item.querySelector("p");
 
         if (title) {
-          pdf.setX(margin + columnWidth);
           addStyledText(
             title.textContent?.trim() +
               (period ? " - " + period.textContent?.trim() : ""),
             {
-              fontSize: 7,
+              fontSize: 9,
               isBold: true,
             }
           );
         }
         if (description) {
-          pdf.setX(margin + columnWidth);
           addStyledText(description.textContent?.trim() || "", {
-            fontSize: 6,
+            fontSize: 8,
             indent: 2,
           });
         }
+        y += 2;
       });
     }
-
-    // Usa la Y più grande tra le due colonne
-    y = Math.max(y, experienceEndY);
 
     pdf.save(`FabioDellOnte_CV_${language}.pdf`);
   };

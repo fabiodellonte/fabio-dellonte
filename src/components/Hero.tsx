@@ -131,20 +131,25 @@ export const Hero = () => {
           <span>+39 329 748 8632</span>
         </a>
         <a
-          href="mailto:fabio.dellonte@gmail.com"
+          href="mailto:fabiodellonte@gmail.com"
           className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
         >
           <div className="p-2 rounded-full bg-secondary text-red-500 group-hover:bg-red-100 dark:group-hover:bg-red-900/30 transition-colors">
             <Mail className="w-5 h-5" />
           </div>
-          <span>fabio.dellonte@gmail.com</span>
+          <span>fabiodellonte@gmail.com</span>
         </a>
-        <span className="flex items-center gap-2 text-muted-foreground group">
+        <a
+          href="https://www.google.com/maps/place/Pesaro,+Province+of+Pesaro+and+Urbino,+Italy"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+        >
           <div className="p-2 rounded-full bg-secondary text-green-500 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-colors">
             <Home className="w-5 h-5" />
           </div>
           <span>{t.location}</span>
-        </span>
+        </a>
       </div>
 
       <div className="flex flex-wrap justify-center gap-6 mt-2">
