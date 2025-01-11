@@ -1,11 +1,12 @@
-import { Hero } from "@/components/Hero";
-import { About } from "@/components/About";
-import { Experience } from "@/components/Experience";
-import { Skills } from "@/components/Skills";
-import { Education } from "@/components/Education";
-import { Section } from "@/components/Section";
-import { BurgerMenu } from "@/components/BurgerMenu";
-import { TopControls } from "@/components/TopControls";
+import { Hero } from "../components/Hero";
+import { About } from "../components/About";
+import { Experience } from "../components/Experience";
+import { Skills } from "../components/Skills";
+import { Education } from "../components/Education";
+import { Section } from "../components/Section";
+import { BurgerMenu } from "../components/BurgerMenu";
+import { TopControls } from "../components/TopControls";
+import { Portfolio } from "../components/Portfolio";
 
 const Index = () => {
   return (
@@ -44,6 +45,8 @@ const Index = () => {
           <Education />
         </div>
       </div>
+
+      <Portfolio />
     </div>
   );
 };

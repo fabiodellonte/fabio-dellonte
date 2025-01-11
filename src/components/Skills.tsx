@@ -95,6 +95,10 @@ const skillIcons = {
   "Visual Studio 2022": <Laptop className="w-4 h-4 text-purple-500" />,
   "Visual Studio Code": <Code className="w-4 h-4 text-blue-500" />,
   "Cursor AI": <BrainCircuit className="w-4 h-4 text-green-500" />,
+  "Bolt.diy": <Bot className="w-4 h-4 text-yellow-500" />,
+  "Lovable.dev": <Bot className="w-4 h-4 text-pink-500" />,
+  "Bolt.new": <Bot className="w-4 h-4 text-blue-500" />,
+  Cline: <Bot className="w-4 h-4 text-purple-500" />,
 
   // AI & Machine Learning
   "OpenAI ChatGPT": <BrainCircuit className="w-4 h-4 text-green-500" />,
@@ -185,7 +189,15 @@ const skills = {
     "Web Applications",
     "OpenGL",
   ],
-  ide: ["Visual Studio 2022", "Visual Studio Code", "Cursor AI"],
+  ide: [
+    "Visual Studio 2022",
+    "Visual Studio Code",
+    "Cursor AI",
+    "Bolt.diy",
+    "Lovable.dev",
+    "Bolt.new",
+    "Cline",
+  ],
   ai: [
     "OpenAI ChatGPT",
     "OpenAI APIs",

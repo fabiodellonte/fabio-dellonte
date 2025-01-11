@@ -16,6 +16,7 @@ const translations = {
     skills: "Skills",
     experience: "Experience",
     education: "Education",
+    portfolio: "Portfolio",
   },
   it: {
     menu: "Menu",
@@ -23,6 +24,7 @@ const translations = {
     skills: "Competenze",
     experience: "Esperienza",
     education: "Formazione",
+    portfolio: "Portfolio",
   },
 };
 
@@ -79,6 +81,13 @@ export const BurgerMenu = () => {
             onClick={() => scrollToSection("education")}
           >
             {t.education}
+          </Button>
+          <Button
+            variant="ghost"
+            className="justify-start"
+            onClick={() => scrollToSection("portfolio")}
+          >
+            {t.portfolio}
           </Button>
         </div>
       </SheetContent>
