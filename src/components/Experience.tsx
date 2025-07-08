@@ -85,7 +85,7 @@ export const Experience = () => {
   const t = translations[language];
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 experience">
       <h2 className="text-3xl font-bold mb-8">{t.title}</h2>
       <div className="space-y-12">
         {t.experiences.map((exp, index) => (
@@ -95,7 +95,7 @@ export const Experience = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="relative pl-8 border-l border-muted"
+            className="relative pl-8 border-l border-muted experience-item"
           >
             <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2" />
             <h3 className="text-xl font-semibold">{exp.title}</h3>
