@@ -57,7 +57,7 @@ export const Education = () => {
   const t = translations[language];
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-8 education">
       <h2 className="text-3xl font-bold mb-8">{t.title}</h2>
       <div className="space-y-8">
         {t.education.map((edu, index) => (
@@ -67,7 +67,7 @@ export const Education = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="space-y-2"
+            className="space-y-2 education-item"
           >
             <h3 className="text-xl font-semibold">{edu.school}</h3>
             <p className="text-muted-foreground">{edu.degree}</p>

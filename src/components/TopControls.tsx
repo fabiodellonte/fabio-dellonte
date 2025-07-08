@@ -171,28 +171,25 @@ export const TopControls = () => {
 
     const experience = content.querySelector(".experience");
     if (experience) {
-      const items = experience.querySelectorAll(".mb-4");
+      const items = experience.querySelectorAll(".experience-item");
       items.forEach((item) => {
         const title = item.querySelector("h3");
-        const period = item.querySelector("span");
-        const description = item.querySelector("p");
+        const company = item.querySelector("p:nth-of-type(1)");
+        const period = item.querySelector("p:nth-of-type(2)");
+        const responsibilities = item.querySelectorAll("li");
 
         if (title) {
-          addStyledText(
-            title.textContent?.trim() +
-              (period ? " - " + period.textContent?.trim() : ""),
-            {
-              fontSize: 9,
-              isBold: true,
-            }
-          );
+          let header = title.textContent?.trim() || "";
+          if (company) header += ` - ${company.textContent?.trim()}`;
+          if (period) header += ` (${period.textContent?.trim()})`;
+          addStyledText(header, { fontSize: 9, isBold: true });
         }
-        if (description) {
-          addStyledText(description.textContent?.trim() || "", {
+        responsibilities.forEach((resp) => {
+          addStyledText(resp.textContent?.trim() || "", {
             fontSize: 8,
             indent: 2,
           });
-        }
+        });
         y += 2;
       });
     }
@@ -205,27 +202,48 @@ export const TopControls = () => {
 
     const education = content.querySelector(".education");
     if (education) {
-      const items = education.querySelectorAll(".mb-4");
+      const items = education.querySelectorAll(".education-item");
       items.forEach((item) => {
         const title = item.querySelector("h3");
-        const period = item.querySelector("span");
-        const description = item.querySelector("p");
+        const degree = item.querySelector("p:nth-of-type(1)");
+        const period = item.querySelector("p:nth-of-type(2)");
+        const grade = item.querySelector("p:nth-of-type(3)");
+        const thesis = item.querySelector("p:nth-of-type(4)");
 
         if (title) {
-          addStyledText(
-            title.textContent?.trim() +
-              (period ? " - " + period.textContent?.trim() : ""),
-            {
-              fontSize: 9,
-              isBold: true,
-            }
-          );
+          let header = title.textContent?.trim() || "";
+          if (degree) header += ` - ${degree.textContent?.trim()}`;
+          if (period) header += ` (${period.textContent?.trim()})`;
+          addStyledText(header, { fontSize: 9, isBold: true });
         }
-        if (description) {
-          addStyledText(description.textContent?.trim() || "", {
-            fontSize: 8,
-            indent: 2,
+        if (grade) {
+          addStyledText(grade.textContent?.trim() || "", { fontSize: 8, indent: 2 });
+        }
+        if (thesis) {
+          addStyledText(thesis.textContent?.trim() || "", { fontSize: 8, indent: 2 });
+        }
+        y += 2;
+      });
+    }
+
+    // Portfolio
+    const portfolio = content.querySelector("#portfolio");
+    if (portfolio) {
+      y += 4;
+      addStyledText("Portfolio", { fontSize: 12, isBold: true, isTitle: true });
+      y += 2;
+      const items = portfolio.querySelectorAll(".card");
+      items.forEach((item) => {
+        const title = item.querySelector("h2, h3, .text-xl");
+        const desc = item.querySelector("p.text-sm");
+        if (title) {
+          addStyledText(title.textContent?.trim() || "", {
+            fontSize: 9,
+            isBold: true,
           });
+        }
+        if (desc) {
+          addStyledText(desc.textContent?.trim() || "", { fontSize: 8, indent: 2 });
         }
         y += 2;
       });
