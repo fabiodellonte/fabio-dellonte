@@ -152,61 +152,56 @@ export const Hero = () => {
         </a>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6 mt-2">
+      <div className="flex flex-wrap justify-center gap-3 mt-2">
         <a
           href="https://www.linkedin.com/in/fabio-dell-onte-09b0419/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="LinkedIn"
+          title="LinkedIn"
+          className="p-2 rounded-full bg-secondary text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-blue-600 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-            <Linkedin className="w-5 h-5" />
-          </div>
-          <span>LinkedIn</span>
+          <Linkedin className="w-5 h-5" />
         </a>
         <a
           href="https://github.com/fabiodellonte/fabio-dellonte"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="GitHub"
+          title="GitHub"
+          className="p-2 rounded-full bg-secondary text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-purple-500 group-hover:bg-purple-100 dark:group-hover:bg-purple-900/30 transition-colors">
-            <Github className="w-5 h-5" />
-          </div>
-          <span>GitHub</span>
+          <Github className="w-5 h-5" />
         </a>
         <a
           href="https://x.com/FabioDellOnte"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="X"
+          title="X"
+          className="p-2 rounded-full bg-secondary text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-blue-400 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-            <Twitter className="w-5 h-5" />
-          </div>
-          <span>Twitter</span>
+          <Twitter className="w-5 h-5" />
         </a>
         <a
           href="https://m.facebook.com/fdellonte/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="Facebook"
+          title="Facebook"
+          className="p-2 rounded-full bg-secondary text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-blue-600 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-            <Facebook className="w-5 h-5" />
-          </div>
-          <span>Facebook</span>
+          <Facebook className="w-5 h-5" />
         </a>
         <a
           href="https://www.instagram.com/fabiodellonte/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="Instagram"
+          title="Instagram"
+          className="p-2 rounded-full bg-secondary text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-pink-500 group-hover:bg-pink-100 dark:group-hover:bg-pink-900/30 transition-colors">
-            <Instagram className="w-5 h-5" />
-          </div>
-          <span>Instagram</span>
+          <Instagram className="w-5 h-5" />
         </a>
       </div>
     </motion.div>
