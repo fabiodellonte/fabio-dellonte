@@ -94,7 +94,7 @@ export const TopControls = () => {
 
     // Contatti e Social in due colonne
     const columnWidth = (contentWidth - 2 * margin) / 2;
-    let startY = y;
+    const startY = y;
 
     // Colonna sinistra: Contatti
     addStyledText("Contatti", { fontSize: 10, isBold: true });
