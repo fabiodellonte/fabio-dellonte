@@ -8,6 +8,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import { useSettings } from "@/contexts/SettingsContext";
+import { cn } from "@/lib/utils";
 
 const translations = {
   en: {
@@ -31,13 +32,44 @@ const translations = {
 export const BurgerMenu = () => {
   const { language } = useSettings();
   const t = translations[language];
+  const [activeSection, setActiveSection] = React.useState("about");
+
+  React.useEffect(() => {
+    const sectionIds = ["about", "skills", "experience", "education", "portfolio"];
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean) as HTMLElement[];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -45% 0px", threshold: 0.01 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(id);
     }
   };
+
+  const menuItems = [
+    { id: "about", label: t.about },
+    { id: "skills", label: t.skills },
+    { id: "experience", label: t.experience },
+    { id: "education", label: t.education },
+    { id: "portfolio", label: t.portfolio },
+  ];
 
   return (
     <Sheet>
@@ -53,42 +85,20 @@ export const BurgerMenu = () => {
       </SheetTrigger>
       <SheetContent side="left" className="w-[80%] sm:w-[385px]">
         <SheetTitle>{t.menu}</SheetTitle>
-        <div className="flex flex-col gap-4 mt-8">
-          <Button
-            variant="ghost"
-            className="justify-start"
-            onClick={() => scrollToSection("about")}
-          >
-            {t.about}
-          </Button>
-          <Button
-            variant="ghost"
-            className="justify-start"
-            onClick={() => scrollToSection("skills")}
-          >
-            {t.skills}
-          </Button>
-          <Button
-            variant="ghost"
-            className="justify-start"
-            onClick={() => scrollToSection("experience")}
-          >
-            {t.experience}
-          </Button>
-          <Button
-            variant="ghost"
-            className="justify-start"
-            onClick={() => scrollToSection("education")}
-          >
-            {t.education}
-          </Button>
-          <Button
-            variant="ghost"
-            className="justify-start"
-            onClick={() => scrollToSection("portfolio")}
-          >
-            {t.portfolio}
-          </Button>
+        <div className="flex flex-col gap-2 mt-8">
+          {menuItems.map((item) => (
+            <Button
+              key={item.id}
+              variant="ghost"
+              className={cn(
+                "justify-start relative overflow-hidden",
+                activeSection === item.id && "menu-link-active"
+              )}
+              onClick={() => scrollToSection(item.id)}
+            >
+              <span className="relative z-10">{item.label}</span>
+            </Button>
+          ))}
         </div>
       </SheetContent>
     </Sheet>

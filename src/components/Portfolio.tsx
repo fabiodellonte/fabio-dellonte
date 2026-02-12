@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Section } from "../components/Section";
 import {
   Card,
@@ -7,7 +8,15 @@ import {
   CardContent,
 } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { Bot, GamepadIcon, Code, FileCode, GitBranch, Cloud, BrainCircuit } from "lucide-react";
+import {
+  Bot,
+  GamepadIcon,
+  Code,
+  FileCode,
+  GitBranch,
+  Cloud,
+  BrainCircuit,
+} from "lucide-react";
 
 type Project = {
   title: string;
@@ -84,48 +93,87 @@ const iconForTag = (tag: string) => {
 };
 
 export const Portfolio = () => {
+  const [cardTransforms, setCardTransforms] = React.useState<Record<string, string>>({});
+
+  const handleMove = (title: string, e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.matchMedia("(max-width: 900px)").matches) return;
+
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    const rotateY = (x - 0.5) * 4;
+    const rotateX = (0.5 - y) * 4;
+
+    setCardTransforms((prev) => ({
+      ...prev,
+      [title]: `perspective(900px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(0)`,
+    }));
+  };
+
+  const resetMove = (title: string) => {
+    setCardTransforms((prev) => ({ ...prev, [title]: "perspective(900px) rotateX(0deg) rotateY(0deg)" }));
+  };
+
   return (
     <Section className="py-8" id="portfolio">
       <h2 className="text-3xl font-bold mb-8 text-center">Portfolio</h2>
       <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
-        {projects.map((project) => (
-          <Card key={project.title} className="h-full">
-            <CardHeader>
-              <CardTitle className="text-xl">{project.title}</CardTitle>
-              <CardDescription>{project.subtitle}</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <p className="text-sm mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.tags.map((tag) => (
-                  <Badge key={`${project.title}-${tag}`} variant="secondary" className="flex items-center gap-1">
-                    {iconForTag(tag)}
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-              <div className="flex gap-2 flex-wrap">
-                {project.demo && (
+        {projects.map((project, idx) => (
+          <div
+            key={project.title}
+            className="portfolio-card-wrap"
+            onMouseMove={(e) => handleMove(project.title, e)}
+            onMouseLeave={() => resetMove(project.title)}
+          >
+            <Card
+              className="h-full portfolio-card"
+              style={{
+                transform: cardTransforms[project.title] ?? "perspective(900px) rotateX(0deg) rotateY(0deg)",
+                transition: "transform 180ms ease-out, box-shadow 250ms ease-out",
+                animationDelay: `${idx * 70}ms`,
+              }}
+            >
+              <CardHeader>
+                <CardTitle className="text-xl">{project.title}</CardTitle>
+                <CardDescription>{project.subtitle}</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                <p className="text-sm mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.tags.map((tag) => (
+                    <Badge
+                      key={`${project.title}-${tag}`}
+                      variant="secondary"
+                      className="flex items-center gap-1"
+                    >
+                      {iconForTag(tag)}
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+                <div className="flex gap-2 flex-wrap">
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm underline hover:text-primary"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
-                    href={project.demo}
+                    href={project.source}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm underline hover:text-primary"
                   >
-                    Live Demo
+                    Source Code
                   </a>
-                )}
-                <a
-                  href={project.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm underline hover:text-primary"
-                >
-                  Source Code
-                </a>
-              </div>
-            </CardContent>
-          </Card>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         ))}
       </div>
     </Section>
