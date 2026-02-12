@@ -119,7 +119,7 @@ export const Experience = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             viewport={{ once: true }}
-            className="relative pl-8 border-l border-muted experience-item"
+            className="relative pl-8 border-l border-muted experience-item transition-all duration-300 hover:translate-x-0.5"
           >
             <div className="absolute w-3 h-3 bg-primary rounded-full -left-[6.5px] top-2" />
             <h3 className="text-xl font-semibold">{exp.title}</h3>

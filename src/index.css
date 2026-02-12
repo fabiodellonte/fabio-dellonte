@@ -113,8 +113,17 @@
   }
 
   .icon-pill:hover {
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.03);
     box-shadow: 0 10px 22px rgba(2, 6, 23, 0.16);
+  }
+
+  .social-row {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .social-row::-webkit-scrollbar {
+    display: none;
   }
 
   .skill-chip {
@@ -128,6 +137,36 @@
     transform: translateY(-1px);
     border-color: hsl(var(--ring) / 0.35);
     box-shadow: 0 10px 24px rgba(30, 41, 59, 0.16);
+  }
+
+  .experience-item:hover {
+    border-left-color: hsl(var(--ring) / 0.45);
+  }
+
+  .experience-item:hover .absolute {
+    box-shadow: 0 0 0 6px hsl(var(--ring) / 0.12);
+  }
+}
+
+@media (max-width: 640px) {
+  .social-row {
+    gap: 0.45rem;
+  }
+
+  .social-row .icon-pill {
+    padding: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ambient-bg,
+  .avatar-glow {
+    animation: none !important;
+  }
+
+  .icon-pill,
+  .skill-chip {
+    transition: none;
   }
 }
 

@@ -118,7 +118,7 @@ export const Hero = () => {
         </a>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 mt-2">
+      <div className="social-row flex flex-nowrap justify-center gap-2 mt-2 overflow-x-auto px-1">
         <a
           href="https://www.linkedin.com/in/fabio-dell-onte-09b0419/"
           target="_blank"
@@ -127,7 +127,7 @@ export const Hero = () => {
           title="LinkedIn"
           className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Linkedin className="w-5 h-5" />
+          <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
         </a>
         <a
           href="https://github.com/fabiodellonte/fabio-dellonte"
@@ -137,7 +137,7 @@ export const Hero = () => {
           title="GitHub"
           className="icon-pill text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
         >
-          <Github className="w-5 h-5" />
+          <Github className="w-4 h-4 md:w-5 md:h-5" />
         </a>
         <a
           href="https://x.com/FabioDellOnte"
@@ -147,7 +147,7 @@ export const Hero = () => {
           title="X"
           className="icon-pill text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Twitter className="w-5 h-5" />
+          <Twitter className="w-4 h-4 md:w-5 md:h-5" />
         </a>
         <a
           href="https://m.facebook.com/fdellonte/"
@@ -157,7 +157,7 @@ export const Hero = () => {
           title="Facebook"
           className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Facebook className="w-5 h-5" />
+          <Facebook className="w-4 h-4 md:w-5 md:h-5" />
         </a>
         <a
           href="https://www.instagram.com/fabiodellonte/"
@@ -167,7 +167,7 @@ export const Hero = () => {
           title="Instagram"
           className="icon-pill text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
         >
-          <Instagram className="w-5 h-5" />
+          <Instagram className="w-4 h-4 md:w-5 md:h-5" />
         </a>
       </div>
     </motion.div>
