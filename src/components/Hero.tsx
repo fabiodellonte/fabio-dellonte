@@ -69,15 +69,17 @@ export const Hero = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      className="flex flex-col items-center gap-6 relative pt-20 md:pt-16"
+      className="flex flex-col items-center gap-6 relative pt-12 md:pt-10"
     >
-      <Avatar className="w-[55%] md:w-64 h-[55%] md:h-64 border-[4px] border-primary avatar-glow">
+      <div className="avatar-frame">
+        <Avatar className="w-[55%] md:w-64 h-[55%] md:h-64 border-[4px] border-primary avatar-glow">
         <AvatarImage
           src="/fabio-dellonte/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png"
           alt="Fabio Dell'Onte"
         />
         <AvatarFallback>FD</AvatarFallback>
-      </Avatar>
+        </Avatar>
+      </div>
 
       <div className="text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-2">Fabio Dell'Onte</h1>
@@ -147,9 +149,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="LinkedIn"
           title="LinkedIn"
-          className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill social-icon text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Linkedin className="w-4 h-4 md:w-5 md:h-5" />
+          <Linkedin className="social-icon-svg" />
         </a>
         <a
           href="https://github.com/fabiodellonte/fabio-dellonte"
@@ -157,9 +159,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="GitHub"
           title="GitHub"
-          className="icon-pill text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
+          className="icon-pill social-icon text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
         >
-          <Github className="w-4 h-4 md:w-5 md:h-5" />
+          <Github className="social-icon-svg" />
         </a>
         <a
           href="https://x.com/FabioDellOnte"
@@ -167,9 +169,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="X"
           title="X"
-          className="icon-pill text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill social-icon text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+          <Twitter className="social-icon-svg" />
         </a>
         <a
           href="https://m.facebook.com/fdellonte/"
@@ -177,9 +179,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Facebook"
           title="Facebook"
-          className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill social-icon text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Facebook className="w-4 h-4 md:w-5 md:h-5" />
+          <Facebook className="social-icon-svg" />
         </a>
         <a
           href="https://www.instagram.com/fabiodellonte/"
@@ -187,9 +189,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Instagram"
           title="Instagram"
-          className="icon-pill text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
+          className="icon-pill social-icon text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
         >
-          <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+          <Instagram className="social-icon-svg" />
         </a>
       </div>
     </motion.div>

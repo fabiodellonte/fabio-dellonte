@@ -135,6 +135,39 @@
     box-shadow: 0 3px 10px rgba(2, 6, 23, 0.08);
   }
 
+  .avatar-frame {
+    position: relative;
+    border-radius: 9999px;
+    isolation: isolate;
+  }
+
+  .avatar-frame::before {
+    content: "";
+    position: absolute;
+    inset: -7px;
+    border-radius: inherit;
+    background: conic-gradient(from 180deg, rgba(59, 130, 246, 0.42), rgba(168, 85, 247, 0.36), rgba(56, 189, 248, 0.34), rgba(59, 130, 246, 0.42));
+    filter: blur(10px);
+    opacity: 0.52;
+    z-index: -1;
+    animation: ring-orbit 9s linear infinite;
+  }
+
+  .social-icon {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .social-icon-svg {
+    width: 0.95rem;
+    height: 0.95rem;
+  }
+
   .icon-pill:hover {
     transform: translateY(-1px) scale(1.03);
     box-shadow: 0 10px 22px rgba(2, 6, 23, 0.16);
@@ -184,11 +217,22 @@
   .social-row .icon-pill {
     padding: 0.4rem;
   }
+
+  .social-icon {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
+
+  .social-icon-svg {
+    width: 0.88rem;
+    height: 0.88rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .ambient-bg,
-  .avatar-glow {
+  .avatar-glow,
+  .avatar-frame::before {
     animation: none !important;
   }
 
@@ -216,6 +260,15 @@
   }
   100% {
     box-shadow: 0 0 24px rgba(56, 189, 248, 0.24), 0 0 42px rgba(56, 189, 248, 0.11);
+  }
+}
+
+@keyframes ring-orbit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
