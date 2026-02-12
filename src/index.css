@@ -93,6 +93,19 @@
     pointer-events: none;
   }
 
+  .section-surface {
+    position: relative;
+  }
+
+  .section-surface::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1.25rem;
+    pointer-events: none;
+    background: radial-gradient(120% 120% at 0% 0%, hsl(var(--primary) / 0.04), transparent 45%);
+  }
+
   .ambient-bg {
     position: fixed;
     inset: -10% -10% auto -10%;
@@ -105,6 +118,16 @@
       radial-gradient(28% 34% at 50% 0%, rgba(59, 130, 246, 0.10), transparent 72%);
     filter: blur(6px);
     animation: ambient-drift 22s ease-in-out infinite alternate;
+  }
+
+  .ambient-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.11;
+    background-image: radial-gradient(rgba(148, 163, 184, 0.35) 0.45px, transparent 0.45px);
+    background-size: 3px 3px;
+    mix-blend-mode: soft-light;
   }
 
   .icon-pill {
@@ -124,6 +147,11 @@
 
   .social-row::-webkit-scrollbar {
     display: none;
+  }
+
+  .tooltip-premium {
+    @apply border-white/20 bg-popover/95 backdrop-blur-md text-popover-foreground;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22);
   }
 
   .skill-chip {

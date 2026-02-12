@@ -12,6 +12,12 @@ import {
 } from "lucide-react";
 import { useSettings } from "@/contexts/SettingsContext";
 import { TypeAnimation } from "react-type-animation";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const translations = {
   en: {
@@ -89,34 +95,50 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-3 mt-4">
-        <a
-          href="tel:+393297488632"
-          aria-label="Phone"
-          title="+39 329 748 8632"
-          className="icon-pill text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30"
-        >
-          <Phone className="w-5 h-5" />
-        </a>
-        <a
-          href="mailto:fabiodellonte@gmail.com"
-          aria-label="Email"
-          title="fabiodellonte@gmail.com"
-          className="icon-pill text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
-        >
-          <Mail className="w-5 h-5" />
-        </a>
-        <a
-          href="https://www.google.com/maps/place/Pesaro,+Province+of+Pesaro+and+Urbino,+Italy"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Location"
-          title={t.location}
-          className="icon-pill text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30"
-        >
-          <Home className="w-5 h-5" />
-        </a>
-      </div>
+      <TooltipProvider delayDuration={120}>
+        <div className="flex flex-wrap justify-center gap-3 mt-4">
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="tel:+393297488632"
+                aria-label="Phone"
+                className="icon-pill text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+              >
+                <Phone className="w-5 h-5" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent className="tooltip-premium">+39 329 748 8632</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="mailto:fabiodellonte@gmail.com"
+                aria-label="Email"
+                className="icon-pill text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
+              >
+                <Mail className="w-5 h-5" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent className="tooltip-premium">fabiodellonte@gmail.com</TooltipContent>
+          </Tooltip>
+
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a
+                href="https://www.google.com/maps/place/Pesaro,+Province+of+Pesaro+and+Urbino,+Italy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Location"
+                className="icon-pill text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30"
+              >
+                <Home className="w-5 h-5" />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent className="tooltip-premium">{t.location}</TooltipContent>
+          </Tooltip>
+        </div>
+      </TooltipProvider>
 
       <div className="social-row flex flex-nowrap justify-center gap-2 mt-2 overflow-x-auto px-1">
         <a
