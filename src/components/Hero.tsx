@@ -120,35 +120,32 @@ export const Hero = () => {
         </p>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6 mt-4">
+      <div className="flex flex-wrap justify-center gap-3 mt-4">
         <a
           href="tel:+393297488632"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="Phone"
+          title="+39 329 748 8632"
+          className="p-2 rounded-full bg-secondary text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-blue-500 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30 transition-colors">
-            <Phone className="w-5 h-5" />
-          </div>
-          <span>+39 329 748 8632</span>
+          <Phone className="w-5 h-5" />
         </a>
         <a
           href="mailto:fabiodellonte@gmail.com"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="Email"
+          title="fabiodellonte@gmail.com"
+          className="p-2 rounded-full bg-secondary text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-red-500 group-hover:bg-red-100 dark:group-hover:bg-red-900/30 transition-colors">
-            <Mail className="w-5 h-5" />
-          </div>
-          <span>fabiodellonte@gmail.com</span>
+          <Mail className="w-5 h-5" />
         </a>
         <a
           href="https://www.google.com/maps/place/Pesaro,+Province+of+Pesaro+and+Urbino,+Italy"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group"
+          aria-label="Location"
+          title={t.location}
+          className="p-2 rounded-full bg-secondary text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
         >
-          <div className="p-2 rounded-full bg-secondary text-green-500 group-hover:bg-green-100 dark:group-hover:bg-green-900/30 transition-colors">
-            <Home className="w-5 h-5" />
-          </div>
-          <span>{t.location}</span>
+          <Home className="w-5 h-5" />
         </a>
       </div>
 

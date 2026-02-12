@@ -6,9 +6,20 @@ const translations = {
     title: "Experience",
     experiences: [
       {
+        title: "Software Quality Manager",
+        company: "Biesse",
+        period: "Aug 2023 - Present",
+        responsibilities: [
+          "Quality strategy and governance across software product lines",
+          "Definition and monitoring of quality KPIs and release gates",
+          "Coordination of QA practices, validation processes, and continuous improvement",
+          "Cross-team alignment with engineering, operations, suppliers, and customers"
+        ]
+      },
+      {
         title: "Software Operations Manager",
         company: "Biesse",
-        period: "Jan 2023 - Present",
+        period: "Jan 2023 - Jul 2023",
         responsibilities: [
           "SDLC, Software Development Lifecycle Management (Agile DevOps, CI/CD)",
           "SCM, software configuration management",
@@ -44,9 +55,20 @@ const translations = {
     title: "Esperienza",
     experiences: [
       {
+        title: "Software Quality Manager",
+        company: "Biesse",
+        period: "Ago 2023 - Presente",
+        responsibilities: [
+          "Strategia e governance della qualità sui prodotti software",
+          "Definizione e monitoraggio KPI di qualità e release gate",
+          "Coordinamento pratiche QA, processi di validazione e miglioramento continuo",
+          "Allineamento cross-team con engineering, operations, fornitori e clienti"
+        ]
+      },
+      {
         title: "Software Operations Manager",
         company: "Biesse",
-        period: "Gen 2023 - Presente",
+        period: "Gen 2023 - Lug 2023",
         responsibilities: [
           "SDLC, Gestione del ciclo di vita dello sviluppo software (Agile DevOps, CI/CD)",
           "SCM, gestione della configurazione software",
