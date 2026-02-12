@@ -72,7 +72,7 @@ export const Hero = () => {
       className="flex flex-col items-center gap-6 relative pt-12 md:pt-10"
     >
       <div className="avatar-frame">
-        <Avatar className="w-[55%] md:w-64 h-[55%] md:h-64 border-[4px] border-primary avatar-glow">
+        <Avatar className="w-56 h-56 md:w-64 md:h-64 border-[4px] border-primary avatar-glow">
         <AvatarImage
           src="/fabio-dellonte/lovable-uploads/ef193632-5cc4-4552-965d-e1dd36c1d830.png"
           alt="Fabio Dell'Onte"
@@ -104,9 +104,9 @@ export const Hero = () => {
               <a
                 href="tel:+393297488632"
                 aria-label="Phone"
-                className="icon-pill text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+                className="icon-pill icon-unified text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="icon-unified-svg" />
               </a>
             </TooltipTrigger>
             <TooltipContent className="tooltip-premium">+39 329 748 8632</TooltipContent>
@@ -117,9 +117,9 @@ export const Hero = () => {
               <a
                 href="mailto:fabiodellonte@gmail.com"
                 aria-label="Email"
-                className="icon-pill text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
+                className="icon-pill icon-unified text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
               >
-                <Mail className="w-5 h-5" />
+                <Mail className="icon-unified-svg" />
               </a>
             </TooltipTrigger>
             <TooltipContent className="tooltip-premium">fabiodellonte@gmail.com</TooltipContent>
@@ -132,9 +132,9 @@ export const Hero = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Location"
-                className="icon-pill text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30"
+                className="icon-pill icon-unified text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30"
               >
-                <Home className="w-5 h-5" />
+                <Home className="icon-unified-svg" />
               </a>
             </TooltipTrigger>
             <TooltipContent className="tooltip-premium">{t.location}</TooltipContent>
@@ -149,9 +149,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="LinkedIn"
           title="LinkedIn"
-          className="icon-pill social-icon text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill icon-unified text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Linkedin className="social-icon-svg" />
+          <Linkedin className="icon-unified-svg" />
         </a>
         <a
           href="https://github.com/fabiodellonte/fabio-dellonte"
@@ -159,9 +159,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="GitHub"
           title="GitHub"
-          className="icon-pill social-icon text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
+          className="icon-pill icon-unified text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
         >
-          <Github className="social-icon-svg" />
+          <Github className="icon-unified-svg" />
         </a>
         <a
           href="https://x.com/FabioDellOnte"
@@ -169,9 +169,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="X"
           title="X"
-          className="icon-pill social-icon text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill icon-unified text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Twitter className="social-icon-svg" />
+          <Twitter className="icon-unified-svg" />
         </a>
         <a
           href="https://m.facebook.com/fdellonte/"
@@ -179,9 +179,9 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Facebook"
           title="Facebook"
-          className="icon-pill social-icon text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
+          className="icon-pill icon-unified text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
-          <Facebook className="social-icon-svg" />
+          <Facebook className="icon-unified-svg" />
         </a>
         <a
           href="https://www.instagram.com/fabiodellonte/"
@@ -189,11 +189,12 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Instagram"
           title="Instagram"
-          className="icon-pill social-icon text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
+          className="icon-pill icon-unified text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
         >
-          <Instagram className="social-icon-svg" />
+          <Instagram className="icon-unified-svg" />
         </a>
       </div>
     </motion.div>
   );
 };
+

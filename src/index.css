@@ -172,23 +172,26 @@
     position: relative;
     border-radius: 9999px;
     isolation: isolate;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .avatar-frame::before {
     content: "";
     position: absolute;
-    inset: -7px;
+    inset: -5px;
     border-radius: inherit;
-    background: conic-gradient(from 180deg, rgba(59, 130, 246, 0.42), rgba(168, 85, 247, 0.36), rgba(56, 189, 248, 0.34), rgba(59, 130, 246, 0.42));
-    filter: blur(10px);
-    opacity: 0.52;
+    background: conic-gradient(from 180deg, rgba(59, 130, 246, 0.22), rgba(168, 85, 247, 0.16), rgba(56, 189, 248, 0.14), rgba(59, 130, 246, 0.22));
+    filter: blur(12px);
+    opacity: 0.34;
     z-index: -1;
-    animation: ring-orbit 9s linear infinite;
+    animation: ring-orbit 20s linear infinite;
   }
 
-  .social-icon {
-    width: 2rem;
-    height: 2rem;
+  .icon-unified {
+    width: 2.15rem;
+    height: 2.15rem;
     padding: 0;
     display: inline-flex;
     align-items: center;
@@ -196,13 +199,13 @@
     flex: 0 0 auto;
   }
 
-  .social-icon-svg {
-    width: 0.95rem;
-    height: 0.95rem;
+  .icon-unified-svg {
+    width: 1.05rem;
+    height: 1.05rem;
   }
 
   .icon-pill:hover {
-    transform: translateY(-1px) scale(1.03);
+    transform: translateY(-1px) scale(1.04);
     box-shadow: 0 10px 22px rgba(2, 6, 23, 0.16);
   }
 
@@ -299,14 +302,14 @@
     padding: 0.4rem;
   }
 
-  .social-icon {
-    width: 1.85rem;
-    height: 1.85rem;
+  .icon-unified {
+    width: 2rem;
+    height: 2rem;
   }
 
-  .social-icon-svg {
-    width: 0.88rem;
-    height: 0.88rem;
+  .icon-unified-svg {
+    width: 0.98rem;
+    height: 0.98rem;
   }
 }
 
