@@ -6,7 +6,7 @@ import jsPDF from "jspdf";
 
 const translations = {
   en: {
-    downloadCV: "Download CV",
+    downloadCV: "Download Resume",
     lastUpdate: "Last update",
   },
   it: {
@@ -265,7 +265,7 @@ export const TopControls = () => {
       >
         <FileDown className="h-4 w-4" />
         <span className="hidden md:inline-flex">{t.downloadCV}</span>
-        <span className="md:hidden">CV</span>
+        <span className="md:hidden">{language === "en" ? "Resume" : "CV"}</span>
       </Button>
       <LanguageSwitcher />
       <Button

@@ -99,6 +99,9 @@ const skillIcons = {
   "Lovable.dev": <Bot className="w-4 h-4 text-pink-500" />,
   "Bolt.new": <Bot className="w-4 h-4 text-blue-500" />,
   Cline: <Bot className="w-4 h-4 text-purple-500" />,
+  OpenClaw: <Webhook className="w-4 h-4 text-cyan-500" />,
+  "Continue.dev": <Microscope className="w-4 h-4 text-emerald-500" />,
+  "GPT-Codex": <BrainCircuit className="w-4 h-4 text-indigo-500" />, 
 
   // AI & Machine Learning
   "OpenAI ChatGPT": <BrainCircuit className="w-4 h-4 text-green-500" />,
@@ -197,6 +200,9 @@ const skills = {
     "Lovable.dev",
     "Bolt.new",
     "Cline",
+    "OpenClaw",
+    "Continue.dev",
+    "GPT-Codex",
   ],
   ai: [
     "OpenAI ChatGPT",
