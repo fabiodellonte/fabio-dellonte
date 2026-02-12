@@ -235,7 +235,7 @@ export const Skills = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-4"
+            className="space-y-4 p-4 rounded-2xl border border-border/60 bg-card/45 backdrop-blur-[1px]"
           >
             <h3 className="text-xl font-semibold">
               {t.categories[category as keyof typeof t.categories]}
@@ -244,7 +244,7 @@ export const Skills = () => {
               {items.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1 rounded-full bg-secondary flex items-center gap-2 text-sm"
+                  className="skill-chip"
                 >
                   {skillIcons[skill as keyof typeof skillIcons]}
                   {skill}

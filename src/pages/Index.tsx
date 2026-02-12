@@ -10,29 +10,32 @@ import { Portfolio } from "../components/Portfolio";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative overflow-x-hidden">
+      <div className="ambient-bg" aria-hidden="true" />
       <BurgerMenu />
       <TopControls />
 
-      <Section className="py-8">
-        <Hero />
-      </Section>
+      <div className="relative z-10">
+        <Section className="py-8">
+          <Hero />
+        </Section>
 
-      <Section className="py-4" id="about">
-        <About />
-      </Section>
+        <Section className="py-4" id="about">
+          <About />
+        </Section>
 
-      <Section className="py-4" id="skills">
-        <Skills />
-      </Section>
+        <Section className="py-4" id="skills">
+          <Skills />
+        </Section>
 
-      <Section className="py-4" id="experience">
-        <Experience />
-      </Section>
+        <Section className="py-4" id="experience">
+          <Experience />
+        </Section>
 
-      <Section className="py-4" id="education">
-        <Education />
-      </Section>
+        <Section className="py-4" id="education">
+          <Education />
+        </Section>
+      </div>
 
       <div id="cv-content" className="hidden">
         <div className="p-8">
@@ -47,7 +50,9 @@ const Index = () => {
         </div>
       </div>
 
-      <Portfolio />
+      <div className="relative z-10">
+        <Portfolio />
+      </div>
     </div>
   );
 };

@@ -52,38 +52,7 @@ const translations = {
   },
 };
 
-// Aggiungiamo una keyframe animation per il glow
-const glowAnimation = `
-@keyframes glow-pulse {
-  0% {
-    box-shadow: 0 0 20px rgba(var(--primary), 0.4),
-                0 0 30px rgba(var(--primary), 0.2);
-  }
-  33% {
-    box-shadow: 0 0 20px rgba(var(--blue-500), 0.4),
-                0 0 30px rgba(var(--blue-500), 0.2);
-  }
-  66% {
-    box-shadow: 0 0 20px rgba(var(--purple-500), 0.4),
-                0 0 30px rgba(var(--purple-500), 0.2);
-  }
-  100% {
-    box-shadow: 0 0 20px rgba(var(--primary), 0.4),
-                0 0 30px rgba(var(--primary), 0.2);
-  }
-}
-
-.avatar-glow {
-  animation: glow-pulse 10s ease-in-out infinite;
-}
-`;
-
-// Aggiungiamo lo stile al documento
-if (typeof document !== "undefined") {
-  const style = document.createElement("style");
-  style.textContent = glowAnimation;
-  document.head.appendChild(style);
-}
+// avatar glow animation moved to global styles (index.css)
 
 export const Hero = () => {
   const { language } = useSettings();
@@ -125,7 +94,7 @@ export const Hero = () => {
           href="tel:+393297488632"
           aria-label="Phone"
           title="+39 329 748 8632"
-          className="p-2 rounded-full bg-secondary text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+          className="icon-pill text-blue-500 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
           <Phone className="w-5 h-5" />
         </a>
@@ -133,7 +102,7 @@ export const Hero = () => {
           href="mailto:fabiodellonte@gmail.com"
           aria-label="Email"
           title="fabiodellonte@gmail.com"
-          className="p-2 rounded-full bg-secondary text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 transition-colors"
+          className="icon-pill text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30"
         >
           <Mail className="w-5 h-5" />
         </a>
@@ -143,7 +112,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Location"
           title={t.location}
-          className="p-2 rounded-full bg-secondary text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors"
+          className="icon-pill text-green-500 hover:bg-green-100 dark:hover:bg-green-900/30"
         >
           <Home className="w-5 h-5" />
         </a>
@@ -156,7 +125,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="LinkedIn"
           title="LinkedIn"
-          className="p-2 rounded-full bg-secondary text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+          className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
           <Linkedin className="w-5 h-5" />
         </a>
@@ -166,7 +135,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="GitHub"
           title="GitHub"
-          className="p-2 rounded-full bg-secondary text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
+          className="icon-pill text-purple-500 hover:bg-purple-100 dark:hover:bg-purple-900/30"
         >
           <Github className="w-5 h-5" />
         </a>
@@ -176,7 +145,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="X"
           title="X"
-          className="p-2 rounded-full bg-secondary text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+          className="icon-pill text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
           <Twitter className="w-5 h-5" />
         </a>
@@ -186,7 +155,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Facebook"
           title="Facebook"
-          className="p-2 rounded-full bg-secondary text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
+          className="icon-pill text-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30"
         >
           <Facebook className="w-5 h-5" />
         </a>
@@ -196,7 +165,7 @@ export const Hero = () => {
           rel="noopener noreferrer"
           aria-label="Instagram"
           title="Instagram"
-          className="p-2 rounded-full bg-secondary text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30 transition-colors"
+          className="icon-pill text-pink-500 hover:bg-pink-100 dark:hover:bg-pink-900/30"
         >
           <Instagram className="w-5 h-5" />
         </a>

@@ -253,7 +253,7 @@ export const TopControls = () => {
   };
 
   return (
-    <div className="fixed top-0 right-0 left-0 bg-background/80 backdrop-blur-sm border-b border-border/40 flex justify-end items-center p-4 gap-4 z-40">
+    <div className="glass-topbar fixed top-0 right-0 left-0 flex justify-end items-center p-4 gap-4 z-40 relative">
       <span className="text-sm text-muted-foreground hidden md:inline-flex">
         {t.lastUpdate}: {lastUpdate}
       </span>
