@@ -82,7 +82,7 @@ export const Hero = () => {
       </div>
 
       <div className="text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-2">Fabio Dell'Onte</h1>
+        <h1 className="display-name font-bold mb-2">Fabio Dell'Onte</h1>
         <h2 className="text-xl md:text-2xl text-blue-500/90 dark:text-blue-400/90 mb-4">
           <TypeAnimation
             sequence={t.roles}

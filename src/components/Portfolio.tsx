@@ -116,7 +116,7 @@ export const Portfolio = () => {
 
   return (
     <Section className="py-8" id="portfolio">
-      <h2 className="text-3xl font-bold mb-8 text-center">Portfolio</h2>
+      <h2 className="section-title font-bold mb-8 text-center">Portfolio</h2>
       <div className="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
         {projects.map((project, idx) => (
           <div

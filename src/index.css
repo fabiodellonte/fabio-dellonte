@@ -73,10 +73,43 @@
 
   body {
     @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.015em;
   }
 }
 
+:root {
+  --display-size: clamp(2.1rem, 4vw, 3.25rem);
+  --section-title-size: clamp(1.7rem, 2.4vw, 2.05rem);
+  --reading-size: clamp(1.02rem, 1.1vw, 1.12rem);
+}
+
 @layer components {
+  .display-name {
+    font-size: var(--display-size);
+    line-height: 1.07;
+    letter-spacing: -0.02em;
+  }
+
+  .section-title {
+    font-size: var(--section-title-size);
+    line-height: 1.15;
+    letter-spacing: -0.018em;
+  }
+
+  .copy-refined {
+    font-size: var(--reading-size);
+    line-height: 1.78;
+    color: hsl(var(--muted-foreground));
+  }
+
   .glass-topbar {
     @apply bg-background/65 backdrop-blur-xl border-b border-white/10 dark:border-white/10;
     box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);

@@ -110,7 +110,7 @@ export const Experience = () => {
 
   return (
     <div className="space-y-12 experience">
-      <h2 className="text-3xl font-bold mb-8">{t.title}</h2>
+      <h2 className="section-title font-bold mb-8">{t.title}</h2>
       <div className="space-y-12">
         {t.experiences.map((exp, index) => (
           <motion.div
