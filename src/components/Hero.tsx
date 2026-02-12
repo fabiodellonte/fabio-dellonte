@@ -17,7 +17,7 @@ const translations = {
   en: {
     role: "Software Engineer",
     description:
-      "Passionate about technology and innovation, with over 15 years of experience in software development and team leadership.",
+      "Passionate about technology and innovation, with over 18 years of experience in software development and team leadership.",
     roles: [
       "Backend Developer",
       3000,
@@ -35,7 +35,7 @@ const translations = {
   it: {
     role: "Ingegnere del Software",
     description:
-      "Appassionato di tecnologia e innovazione, con oltre 15 anni di esperienza nello sviluppo software e nella leadership di team.",
+      "Appassionato di tecnologia e innovazione, con oltre 18 anni di esperienza nello sviluppo software e nella leadership di team.",
     roles: [
       "Backend Developer",
       3000,

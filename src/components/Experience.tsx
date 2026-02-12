@@ -12,7 +12,8 @@ const translations = {
         responsibilities: [
           "Quality strategy and governance across software product lines",
           "Definition and monitoring of quality KPIs and release gates",
-          "Coordination of QA practices, validation processes, and continuous improvement",
+          "Hands-on contribution to software development, SDLC and CI/CD improvements",
+          "Software configuration management, cloud infrastructure evolution, and software protection initiatives",
           "Cross-team alignment with engineering, operations, suppliers, and customers"
         ]
       },
@@ -61,7 +62,8 @@ const translations = {
         responsibilities: [
           "Strategia e governance della qualità sui prodotti software",
           "Definizione e monitoraggio KPI di qualità e release gate",
-          "Coordinamento pratiche QA, processi di validazione e miglioramento continuo",
+          "Contributo pratico allo sviluppo software, al miglioramento SDLC e CI/CD",
+          "Gestione configurazione software, evoluzione infrastruttura cloud e iniziative di protezione software",
           "Allineamento cross-team con engineering, operations, fornitori e clienti"
         ]
       },
